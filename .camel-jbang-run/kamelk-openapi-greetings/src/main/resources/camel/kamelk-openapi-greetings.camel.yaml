@@ -1,4 +1,8 @@
-
+- restConfiguration:
+    apiComponent: openapi
+    apiContextPath: api-doc
+    clientRequestValidation: false
+    inlineRoutes: true
 - rest:
     id: rest-1765
     apiDocs: true
@@ -12,7 +16,7 @@
       uri: direct:greetings
       steps:
         - setBody:
-            simple: Hello from ${headers.name}
+            simple: Hello from Miguel
         - log:
             id: log-1795
             message: ${body}
