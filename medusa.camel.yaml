@@ -1,0 +1,66 @@
+- route:
+    id: route-2833
+    from:
+      id: from-3448
+      uri: direct
+      parameters:
+        name: productUpdate
+      steps:
+        - log:
+            id: log-3949
+            message: ${body}
+        - setVariable:
+            id: setVariable-3264
+            jsonpath:
+              expression: $.id
+            name: productId
+        - setBody:
+            id: setBody-1791
+            simple:
+              expression: Product with id ${variable.productId} was updated.
+- route:
+    id: route-2596
+    from:
+      id: from-1765
+      uri: direct
+      parameters:
+        name: productCreate
+      steps:
+        - log:
+            id: log-3074
+            message: ${body}
+        - setVariable:
+            id: setVariable-2650
+            jsonpath:
+              expression: $.id
+            name: productId
+        - setBody:
+            id: setBody-4119
+            simple:
+              expression: Product with id ${variable.productId} was created
+- route:
+    id: route-1066
+    from:
+      id: from-4201
+      uri: direct
+      parameters:
+        name: productDelete
+      steps:
+        - log:
+            id: log-2780
+            message: ${body}
+        - setVariable:
+            id: setVariable-4908
+            jsonpath:
+              expression: $.id
+            name: productId
+        - setBody:
+            id: setBody-1165
+            description: ""
+            simple:
+              expression: Product with id ${variable.productId} was deleted.
+- rest:
+    id: rest-3916
+    openApi:
+      missingOperation: ignore
+      specification: medusa.json

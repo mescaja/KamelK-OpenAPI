@@ -1,0 +1,149 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Medusa WebHooks",
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "/medusa/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Medusa WebHooks",
+        "description": "Medusa WebHooks"
+      }
+    ],
+    "paths": {
+      "/product-create": {
+        "post": {
+          "tags": [
+            "product-create"
+          ],
+          "operationId": "productCreate",
+          "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/productCreate"
+                    }
+                }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/product-update": {
+        "post": {
+          "tags": [
+            "product-update"
+          ],
+          "operationId": "productUpdate",
+          "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/productUpdate"
+                    }
+                }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+    "/product-delete": {
+        "post": {
+          "tags": [
+            "product-delete"
+          ],
+          "operationId": "productDelete",
+          "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/productDelete"
+                    }
+                }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "productCreate": {
+            "required": [
+					"id"
+				],
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "productUpdate": {
+            "required": [
+					"id"
+				],
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "productDelete": {
+            "required": [
+					"id"
+				],
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "response": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
